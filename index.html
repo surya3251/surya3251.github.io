@@ -1,124 +1,138 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Surya's Website</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Super Cars Garage</title>
 
-    <style>
-        *{
-            margin:0;
-            padding:0;
-            box-sizing:border-box;
-        }
+<style>
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:Arial,sans-serif;
+}
 
-        body{
-            font-family:Arial, sans-serif;
-            height:100vh;
-            display:flex;
-            justify-content:center;
-            align-items:center;
-            overflow:hidden;
-            color:white;
-            text-align:center;
-        }
+body{
+background:linear-gradient(-45deg,#000,#111,#222,#333);
+background-size:400% 400%;
+animation:bg 10s infinite;
+color:white;
+}
 
-        .bg{
-            position:fixed;
-            top:0;
-            left:0;
-            width:100%;
-            height:100%;
-            background:linear-gradient(-45deg,
-            #ff0080,
-            #7928ca,
-            #2afadf,
-            #00ff88);
-            background-size:400% 400%;
-            animation:gradient 10s ease infinite;
-            z-index:-2;
-        }
+@keyframes bg{
+0%{background-position:0% 50%;}
+50%{background-position:100% 50%;}
+100%{background-position:0% 50%;}
+}
 
-        @keyframes gradient{
-            0%{background-position:0% 50%;}
-            50%{background-position:100% 50%;}
-            100%{background-position:0% 50%;}
-        }
+header{
+text-align:center;
+padding:40px;
+}
 
-        .card{
-            background:rgba(255,255,255,0.1);
-            backdrop-filter:blur(10px);
-            padding:30px;
-            border-radius:20px;
-            box-shadow:0 0 25px rgba(0,0,0,0.3);
-        }
+header h1{
+font-size:50px;
+}
 
-        h1{
-            font-size:3em;
-            margin-bottom:15px;
-        }
+header p{
+margin-top:10px;
+font-size:18px;
+}
 
-        p{
-            margin-bottom:20px;
-            font-size:1.2em;
-        }
+.container{
+display:flex;
+flex-wrap:wrap;
+justify-content:center;
+gap:25px;
+padding:30px;
+}
 
-        button{
-            padding:12px 25px;
-            border:none;
-            border-radius:30px;
-            font-size:18px;
-            cursor:pointer;
-        }
+.card{
+width:320px;
+background:rgba(255,255,255,0.1);
+border-radius:20px;
+overflow:hidden;
+backdrop-filter:blur(10px);
+transition:0.4s;
+box-shadow:0 0 20px rgba(0,0,0,0.4);
+}
 
-        button:hover{
-            transform:scale(1.1);
-            transition:0.3s;
-        }
+.card:hover{
+transform:translateY(-10px) scale(1.03);
+}
 
-        .circle{
-            position:absolute;
-            border-radius:50%;
-            background:rgba(255,255,255,0.15);
-            animation:float 15s linear infinite;
-        }
+.card img{
+width:100%;
+height:200px;
+object-fit:cover;
+}
 
-        @keyframes float{
-            from{
-                transform:translateY(100vh);
-            }
-            to{
-                transform:translateY(-150px);
-            }
-        }
-    </style>
+.card h2{
+padding:15px;
+}
+
+.card p{
+padding:0 15px 15px;
+}
+
+.btn{
+display:block;
+text-align:center;
+margin:15px;
+padding:12px;
+background:red;
+color:white;
+text-decoration:none;
+border-radius:10px;
+}
+
+.btn:hover{
+background:darkred;
+}
+
+footer{
+text-align:center;
+padding:20px;
+}
+</style>
+
 </head>
-
 <body>
 
-<div class="bg"></div>
+<header>
+<h1>🏎️ Super Cars Garage</h1>
+<p>Explore the world's most amazing cars</p>
+</header>
 
-<div class="circle" style="width:80px;height:80px;left:10%;animation-duration:12s;"></div>
-<div class="circle" style="width:120px;height:120px;left:40%;animation-duration:18s;"></div>
-<div class="circle" style="width:60px;height:60px;left:70%;animation-duration:10s;"></div>
-<div class="circle" style="width:150px;height:150px;left:85%;animation-duration:20s;"></div>
+<div class="container">
 
 <div class="card">
-    <h1>Welcome 🚀</h1>
-
-    <p>This website is hosted free on GitHub Pages.</p>
-
-    <button onclick="showMessage()">
-        Click Me
-    </button>
-
-    <h3 id="msg" style="margin-top:20px;"></h3>
+<img src="https://images.unsplash.com/photo-1503376780353-7e6692767b70?w=800" alt="Ferrari">
+<h2>Ferrari</h2>
+<p>Italian supercar famous for speed and racing heritage.</p>
+<a href="#" class="btn">View Details</a>
 </div>
 
-<script>
-function showMessage(){
-    document.getElementById("msg").innerHTML =
-    "Thanks for visiting my website!";
-}
-</script>
+<div class="card">
+<img src="https://images.unsplash.com/photo-1544636331-e26879cd4d9b?w=800" alt="Lamborghini">
+<h2>Lamborghini</h2>
+<p>Known for aggressive styling and powerful V12 engines.</p>
+<a href="#" class="btn">View Details</a>
+</div>
+
+<div class="card">
+<img src="https://images.unsplash.com/photo-1553440569-bcc63803a83d?w=800" alt="Bugatti">
+<h2>Bugatti</h2>
+<p>One of the fastest and most luxurious hypercars.</p>
+<a href="#" class="btn">View Details</a>
+</div>
+
+</div>
+
+<footer>
+© 2026 Super Cars Garage
+</footer>
 
 </body>
 </html>
