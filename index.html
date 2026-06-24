@@ -1,27 +1,124 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>Surya's Website</title>
-<style>
-body{
-font-family:Arial;
-text-align:center;
-background:#f0f0f0;
-}
-h1{
-color:blue;
-}
-</style>
+    <title>Surya's Website</title>
+
+    <style>
+        *{
+            margin:0;
+            padding:0;
+            box-sizing:border-box;
+        }
+
+        body{
+            font-family:Arial, sans-serif;
+            height:100vh;
+            display:flex;
+            justify-content:center;
+            align-items:center;
+            overflow:hidden;
+            color:white;
+            text-align:center;
+        }
+
+        .bg{
+            position:fixed;
+            top:0;
+            left:0;
+            width:100%;
+            height:100%;
+            background:linear-gradient(-45deg,
+            #ff0080,
+            #7928ca,
+            #2afadf,
+            #00ff88);
+            background-size:400% 400%;
+            animation:gradient 10s ease infinite;
+            z-index:-2;
+        }
+
+        @keyframes gradient{
+            0%{background-position:0% 50%;}
+            50%{background-position:100% 50%;}
+            100%{background-position:0% 50%;}
+        }
+
+        .card{
+            background:rgba(255,255,255,0.1);
+            backdrop-filter:blur(10px);
+            padding:30px;
+            border-radius:20px;
+            box-shadow:0 0 25px rgba(0,0,0,0.3);
+        }
+
+        h1{
+            font-size:3em;
+            margin-bottom:15px;
+        }
+
+        p{
+            margin-bottom:20px;
+            font-size:1.2em;
+        }
+
+        button{
+            padding:12px 25px;
+            border:none;
+            border-radius:30px;
+            font-size:18px;
+            cursor:pointer;
+        }
+
+        button:hover{
+            transform:scale(1.1);
+            transition:0.3s;
+        }
+
+        .circle{
+            position:absolute;
+            border-radius:50%;
+            background:rgba(255,255,255,0.15);
+            animation:float 15s linear infinite;
+        }
+
+        @keyframes float{
+            from{
+                transform:translateY(100vh);
+            }
+            to{
+                transform:translateY(-150px);
+            }
+        }
+    </style>
 </head>
+
 <body>
 
-<h1>Welcome to Surya's Website</h1>
+<div class="bg"></div>
 
-<p>This website is hosted free on GitHub Pages.</p>
+<div class="circle" style="width:80px;height:80px;left:10%;animation-duration:12s;"></div>
+<div class="circle" style="width:120px;height:120px;left:40%;animation-duration:18s;"></div>
+<div class="circle" style="width:60px;height:60px;left:70%;animation-duration:10s;"></div>
+<div class="circle" style="width:150px;height:150px;left:85%;animation-duration:20s;"></div>
 
-<button onclick="alert('Hello Visitor!')">
-Click Me
-</button>
+<div class="card">
+    <h1>Welcome 🚀</h1>
+
+    <p>This website is hosted free on GitHub Pages.</p>
+
+    <button onclick="showMessage()">
+        Click Me
+    </button>
+
+    <h3 id="msg" style="margin-top:20px;"></h3>
+</div>
+
+<script>
+function showMessage(){
+    document.getElementById("msg").innerHTML =
+    "Thanks for visiting my website!";
+}
+</script>
 
 </body>
 </html>
