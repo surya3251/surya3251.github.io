@@ -1,23 +1,33 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Super Cars Garage</title>
+<title>HyperDrive Motors</title>
 
 <style>
 *{
 margin:0;
 padding:0;
 box-sizing:border-box;
-font-family:Arial,sans-serif;
+font-family:Segoe UI,sans-serif;
 }
 
 body{
-background:linear-gradient(-45deg,#000,#111,#222,#333);
-background-size:400% 400%;
-animation:bg 10s infinite;
+background:#000;
 color:white;
+overflow-x:hidden;
+}
+
+.hero{
+height:100vh;
+display:flex;
+justify-content:center;
+align-items:center;
+text-align:center;
+background:linear-gradient(-45deg,#000,#111,#1a1a1a,#333);
+background-size:400% 400%;
+animation:bg 12s ease infinite;
 }
 
 @keyframes bg{
@@ -26,112 +36,170 @@ color:white;
 100%{background-position:0% 50%;}
 }
 
-header{
+.hero-content h1{
+font-size:5rem;
+letter-spacing:4px;
+text-transform:uppercase;
+}
+
+.hero-content p{
+margin-top:20px;
+font-size:1.3rem;
+color:#ccc;
+}
+
+.btn{
+display:inline-block;
+margin-top:30px;
+padding:15px 35px;
+background:red;
+color:white;
+text-decoration:none;
+border-radius:50px;
+transition:.3s;
+}
+
+.btn:hover{
+transform:scale(1.1);
+}
+
+.section-title{
 text-align:center;
-padding:40px;
+font-size:3rem;
+padding:60px 20px 30px;
 }
 
-header h1{
-font-size:50px;
-}
-
-header p{
-margin-top:10px;
-font-size:18px;
-}
-
-.container{
+.cars{
 display:flex;
 flex-wrap:wrap;
 justify-content:center;
-gap:25px;
-padding:30px;
+gap:30px;
+padding:20px;
 }
 
 .card{
-width:320px;
-background:rgba(255,255,255,0.1);
+width:350px;
+background:rgba(255,255,255,.08);
+backdrop-filter:blur(10px);
 border-radius:20px;
 overflow:hidden;
-backdrop-filter:blur(10px);
-transition:0.4s;
-box-shadow:0 0 20px rgba(0,0,0,0.4);
+transition:.4s;
+box-shadow:0 0 25px rgba(255,255,255,.05);
 }
 
 .card:hover{
-transform:translateY(-10px) scale(1.03);
+transform:translateY(-10px);
+box-shadow:0 0 30px rgba(255,0,0,.4);
 }
 
 .card img{
 width:100%;
-height:200px;
+height:220px;
 object-fit:cover;
 }
 
-.card h2{
-padding:15px;
+.card-content{
+padding:20px;
 }
 
-.card p{
-padding:0 15px 15px;
+.card-content h2{
+margin-bottom:10px;
 }
 
-.btn{
-display:block;
+.card-content p{
+color:#ccc;
+}
+
+.stats{
+display:flex;
+justify-content:center;
+flex-wrap:wrap;
+gap:50px;
+padding:80px 20px;
+background:#111;
+}
+
+.stat{
 text-align:center;
-margin:15px;
-padding:12px;
-background:red;
-color:white;
-text-decoration:none;
-border-radius:10px;
 }
 
-.btn:hover{
-background:darkred;
+.stat h2{
+font-size:3rem;
+color:red;
+}
+
+.stat p{
+margin-top:10px;
 }
 
 footer{
 text-align:center;
-padding:20px;
+padding:40px;
+background:#000;
+color:#777;
 }
 </style>
-
 </head>
+
 <body>
 
-<header>
-<h1>🏎️ Super Cars Garage</h1>
-<p>Explore the world's most amazing cars</p>
-</header>
+<section class="hero">
+<div class="hero-content">
+<h1>HyperDrive</h1>
+<p>Experience Speed. Luxury. Power.</p>
+<a href="#cars" class="btn">Explore Cars</a>
+</div>
+</section>
 
-<div class="container">
+<h1 class="section-title" id="cars">Featured Cars</h1>
+
+<div class="cars">
 
 <div class="card">
-<img src="https://images.unsplash.com/photo-1503376780353-7e6692767b70?w=800" alt="Ferrari">
-<h2>Ferrari</h2>
-<p>Italian supercar famous for speed and racing heritage.</p>
-<a href="#" class="btn">View Details</a>
+<img src="https://images.unsplash.com/photo-1492144534655-ae79c964c9d7?w=1200" alt="">
+<div class="card-content">
+<h2>Ferrari SF90</h2>
+<p>986 HP hybrid supercar built for extreme performance.</p>
+</div>
 </div>
 
 <div class="card">
-<img src="https://images.unsplash.com/photo-1544636331-e26879cd4d9b?w=800" alt="Lamborghini">
-<h2>Lamborghini</h2>
-<p>Known for aggressive styling and powerful V12 engines.</p>
-<a href="#" class="btn">View Details</a>
+<img src="https://images.unsplash.com/photo-1502877338535-766e1452684a?w=1200" alt="">
+<div class="card-content">
+<h2>Lamborghini Aventador</h2>
+<p>Legendary V12 machine with breathtaking acceleration.</p>
+</div>
 </div>
 
 <div class="card">
-<img src="https://images.unsplash.com/photo-1553440569-bcc63803a83d?w=800" alt="Bugatti">
-<h2>Bugatti</h2>
-<p>One of the fastest and most luxurious hypercars.</p>
-<a href="#" class="btn">View Details</a>
+<img src="https://images.unsplash.com/photo-1553440569-bcc63803a83d?w=1200" alt="">
+<div class="card-content">
+<h2>Bugatti Chiron</h2>
+<p>One of the fastest production cars ever created.</p>
+</div>
 </div>
 
+</div>
+
+<div class="stats">
+<div class="stat">
+<h2>500+</h2>
+<p>Luxury Cars</p>
+</div>
+
+<div class="stat">
+<h2>1200+</h2>
+<p>Happy Customers</p>
+</div>
+
+<div class="stat">
+<h2>220 MPH</h2>
+<p>Top Speed</p>
+</div>
 </div>
 
 <footer>
-© 2026 Super Cars Garage
+© 2026 HyperDrive Motors | Designed by Surya
 </footer>
 
 </body>
