@@ -132,3 +132,195 @@ document.addEventListener("keydown", function(e){
 
 // Console greeting
 console.log("Welcome to Chess Master Academy!");
+/* ===========================
+   CHESS PIECES RAIN EFFECT
+=========================== */
+
+const chessContainer = document.getElementById("chess-rain");
+
+const pieces = [
+"♔","♕","♖","♗","♘","♙",
+"♚","♛","♜","♝","♞","♟"
+];
+
+function createPiece(){
+
+const piece=document.createElement("div");
+
+piece.innerHTML=pieces[Math.floor(Math.random()*pieces.length)];
+
+piece.style.position="fixed";
+
+piece.style.left=Math.random()*100+"vw";
+
+piece.style.top="-60px";
+
+piece.style.fontSize=(20+Math.random()*35)+"px";
+
+piece.style.color=Math.random()>0.5?"gold":"white";
+
+piece.style.opacity=0.3+Math.random()*0.7;
+
+piece.style.pointerEvents="none";
+
+piece.style.userSelect="none";
+
+piece.style.zIndex="-1";
+
+piece.style.transition="transform linear";
+
+document.body.appendChild(piece);
+
+let y=-60;
+
+const speed=2+Math.random()*4;
+
+const rotate=Math.random()*8;
+
+function fall(){
+
+y+=speed;
+
+piece.style.top=y+"px";
+
+piece.style.transform=`rotate(${y*rotate/50}deg)`;
+
+if(y<window.innerHeight+80){
+
+requestAnimationFrame(fall);
+
+}
+
+else{
+
+piece.remove();
+
+}
+
+}
+
+fall();
+
+}
+
+setInterval(createPiece,180);
+
+/* ===========================
+   HERO TEXT FLOAT EFFECT
+=========================== */
+
+const hero=document.querySelector(".hero h2");
+
+if(hero){
+
+let up=true;
+
+setInterval(()=>{
+
+hero.style.transform=up?"translateY(-10px)":"translateY(10px)";
+
+hero.style.transition="1.8s";
+
+up=!up;
+
+},1800);
+
+}
+
+/* ===========================
+   RANDOM CHESS QUOTES
+=========================== */
+
+const chessQuotes=[
+
+"Every chess master was once a beginner.",
+
+"Think before every move.",
+
+"Control the center.",
+
+"Castle early.",
+
+"Tactics win games.",
+
+"The king is the soul of chess.",
+
+"Study your losses.",
+
+"Patience wins games.",
+
+"Calculate, don't guess."
+
+];
+
+const quote=document.querySelector("footer p");
+
+if(quote){
+
+setInterval(()=>{
+
+quote.innerHTML=
+
+chessQuotes[Math.floor(Math.random()*chessQuotes.length)];
+
+},5000);
+
+}
+
+/* ===========================
+   CARD FADE-IN ANIMATION
+=========================== */
+
+const observer=new IntersectionObserver(entries=>{
+
+entries.forEach(entry=>{
+
+if(entry.isIntersecting){
+
+entry.target.style.opacity="1";
+
+entry.target.style.transform="translateY(0)";
+
+}
+
+});
+
+});
+
+document.querySelectorAll(".card").forEach(card=>{
+
+card.style.opacity="0";
+
+card.style.transform="translateY(50px)";
+
+card.style.transition="0.8s";
+
+observer.observe(card);
+
+});
+
+/* ===========================
+   HERO BUTTON PULSE
+=========================== */
+
+document.querySelectorAll("button").forEach(btn=>{
+
+setInterval(()=>{
+
+btn.animate([
+
+{transform:"scale(1)"},
+
+{transform:"scale(1.08)"},
+
+{transform:"scale(1)"}
+
+],{
+
+duration:2000
+
+});
+
+},2500);
+
+});
